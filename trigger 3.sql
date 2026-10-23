@@ -32,8 +32,3 @@
 -- for each row
 -- execute function fn_historico_carreira();
 
--- INSERT INTO funcionarios (nome, cargo, salario) VALUES ('Maria Santos', 'Dev senior', 13500.00);
--- update funcionarios set cargo = 'chefe de setor', salario = 15300.00 where id = 1
--- select * from historico_carreira;
-
-
