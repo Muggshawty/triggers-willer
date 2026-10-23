@@ -12,8 +12,8 @@
 -- );
 
 
--- CREATE OR REPLACE FUNCTION fn_processa_baixa_estoque()
--- RETURNS TRIGGER AS $$
+-- create or replace function fn_processa_baixa_estoque()
+-- returns trigger as $$
 -- declare	
 -- v_estoque_atual int;
 -- v_nome_produto varchar(100);
