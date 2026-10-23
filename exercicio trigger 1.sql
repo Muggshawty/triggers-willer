@@ -1,24 +1,24 @@
--- CREATE TABLE estoque (
---     id SERIAL PRIMARY KEY,
---     nome_item VARCHAR(100) NOT NULL,
---     quantidade INT NOT NULL DEFAULT 0
+-- create table estoque (
+--     id serial primary key,
+--     nome_item varchar(100) not null,
+--     quantidade int not null default 0
 -- );
--- CREATE OR REPLACE FUNCTION fn_valida_estoque_minimo()
--- RETURNS TRIGGER AS $$
--- BEGIN
---     IF NEW.quantidade < 0 THEN
---         RAISE EXCEPTION 'Operação cancelada! O item "%" não pode ter estoque negativo (Tentativa: % unidade(s)).', 
---             NEW.nome_item, NEW.quantidade;
---     END IF;
---     RETURN NEW;
--- END;
--- $$ LANGUAGE plpgsql;
+-- create or replace function fn_valida_estoque_minimo()
+-- returns trigger as $$
+-- begin
+--     if new.quantidade < 0 then
+--         raise exception 'Operação cancelada! O item "%" não pode ter estoque negativo (Tentativa: % unidade(s)).', 
+--             new.nome_item, new.quantidade;
+--     end if;
+--     return new;
+-- end;
+-- $$ language plpgsql;
 
 
--- CREATE TRIGGER trg_valida_estoque
--- BEFORE INSERT OR UPDATE ON estoque
--- FOR EACH ROW
--- EXECUTE FUNCTION fn_valida_estoque_minimo();
+-- create trigger trg_valida_estoque
+-- before insert or update on estoque
+-- for each row
+-- execute function fn_valida_estoque_minimo();
 
--- INSERT INTO estoque (nome_item, quantidade) VALUES ('Teclado Mecânico', 10);
--- UPDATE estoque SET quantidade = -2 WHERE id = 1;
+-- insert into estoque (nome_item, quantidade) values ('Teclado Mecânico', 10);
+-- update estoque set quantidade = -2 where id = 1;
